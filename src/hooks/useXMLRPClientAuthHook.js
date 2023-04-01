@@ -11,10 +11,10 @@ export const MyComponent = () => {
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>Error: {error}</div>;
   }
 
-  const userId = data[0][0];
+  const userId = data;
 
   return <div>Current user ID: {userId}</div>;
 };

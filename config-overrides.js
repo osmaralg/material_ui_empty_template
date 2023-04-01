@@ -1,4 +1,5 @@
 const webpack = require("webpack");
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function override(config) {
   const fallback = config.resolve.fallback || {};
@@ -12,12 +13,14 @@ module.exports = function override(config) {
     url: require.resolve("url"),
   });
   config.resolve.fallback = fallback;
+  
   config.plugins = (config.plugins || []).concat([
     new webpack.ProvidePlugin({
       process: "process/browser",
       Buffer: ["buffer", "Buffer"],
     }),
   ]);
+
   config.ignoreWarnings = [/Failed to parse source map/];
   config.module.rules.push({
     test: /\.(js|mjs|jsx)$/,
@@ -27,5 +30,6 @@ module.exports = function override(config) {
       fullySpecified: false,
     },
   });
+  
   return config;
 };
