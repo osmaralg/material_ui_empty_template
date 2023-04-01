@@ -29,10 +29,10 @@ export default function Router() {
       children: [
         { element: <Navigate to="/dashboard/app" />, index: true },
         { path: 'app', element: <DashboardAppPage /> },
-        { path: 'user', element: <UserPage /> },
+        //{ path: 'user', element: <UserPage /> },
         { path: 'products', element: <ProductsPage /> },
         // { path: 'blog', element: <BlogPage /> },
-      ],
+      ].concat(newRoutes),
     },
     
 
@@ -49,7 +49,7 @@ export default function Router() {
       element: <Navigate to="/404" replace />,
     },
   ]
-  const routes = useRoutes(defaultRoutes.concat(newRoutes));
+  const routes = useRoutes(defaultRoutes);
 
   return routes;
 }

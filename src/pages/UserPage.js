@@ -30,7 +30,7 @@ import Scrollbar from '../components/scrollbar';
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // mock
 import USERLIST from '../_mock/user';
-
+import { MyComponent } from '../hooks/useXMLRPClientAuthHook';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
@@ -157,6 +157,7 @@ export default function UserPage() {
           <Typography variant="h4" gutterBottom>
             User
           </Typography>
+          <MyComponent />
           <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New User
           </Button>
