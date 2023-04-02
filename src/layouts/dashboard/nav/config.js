@@ -14,10 +14,17 @@ const navConfig = [
     icon: icon('ic_user'),
     element: <UserPage />,
   },
+
   {
-    title: 'product',
-    path: 'product',
+    title: 'res.partner',
+    path: 'res.partner',
     icon: icon('ic_user'),
+    element: <UserPage />,
+  },
+  {
+    title: 'product.template',
+    path: 'product.template',
+    icon: icon('ic_cart'),
     element: <UserPage />,
   },
   /**
