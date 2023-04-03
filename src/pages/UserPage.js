@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Helmet } from 'react-helmet-async';
 import { filter, result } from 'lodash';
 import { sentenceCase } from 'change-case';
@@ -76,13 +77,14 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-export default function UserPage() {
+export default function UserPage(props) {
 
   const location = useLocation();
   
-  // console.log();
+  const { model, title } = props
   
-  const model = location.pathname.replace("/dashboard/", "") 
+  console.log(model)
+  // const model = location.pathname.replace("/dashboard/", "") 
 
   const [open, setOpen] = useState(null);
 
@@ -99,11 +101,8 @@ export default function UserPage() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   // const [result, setResult] = useState({})
   
-  const { data, error, loading } = MyComponent2('res.partner')
+  const { data, error, loading } = MyComponent2(model)
   
-  useEffect(()=>{
-    console.log(data)
-  }, [])
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
@@ -166,17 +165,17 @@ export default function UserPage() {
   return (
     <>
       <Helmet>
-        <title> User | Minimal UI </title>
+        <title> {title} | Minimal UI </title>
       </Helmet>
 
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            User
+            {title}
           </Typography>
 
           <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New User
+            New {title}
           </Button>
         </Stack>
 

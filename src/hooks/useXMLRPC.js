@@ -19,6 +19,7 @@ export const useXMLRPC = (host, url, method, params) => {
 
 
       client.methodCall(method, params, (err, value) => {
+        
         console.log("value", value)
         console.log("err", err)
 
