@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/prop-types */
 import { Helmet } from 'react-helmet-async';
 import { filter, result } from 'lodash';
@@ -39,10 +40,8 @@ import { MyComponent, MyComponent2 } from '../hooks/useXMLRPClientAuthHook';
 const TABLE_HEAD = [
   { id: 'id', label: 'ID', alignRight: false},
   { id: 'name', label: 'Name', alignRight: false },
-  // { id: 'company_id', label: 'Company', alignRight: false },
-  // { id: 'role', label: 'Role', alignRight: false },
-  // { id: 'isVerified', label: 'Verified', alignRight: false },
-  // { id: 'status', label: 'Status', alignRight: false },
+  { id: 'write_date', label: 'Updated On', alignRight: false },
+
   { id: '' },
 ];
 
@@ -196,7 +195,7 @@ export default function UserPage(props) {
                 />
                 <TableBody>
                   {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => {
-                    const { id, name, } = row;
+                    const { id, name, write_date } = row;
                     const selectedUser = selected.indexOf(name) !== -1;
 
                     return (
@@ -214,6 +213,8 @@ export default function UserPage(props) {
                             </Typography>
                           </Stack>
                         </TableCell>
+
+                        <TableCell align="left">{write_date}</TableCell>
 
 
 

@@ -41,7 +41,7 @@ export const MyComponent2 = (model) => {
   // const arg1 = [['is_company', '=', true]] // first argument of python method
   const arg1 = [] // first argument of python method
 
-  const arg2 = ['id', 'name',] // fields
+  const arg2 = ['id', 'name', 'write_date'] // fields
 
   // models.execute_kw(db, uid, password, 'res.partner', 'search_read', [[['is_company', '=', True]]], {'fields': ['name', 'country_id', 'comment'], 'limit': 5})
   // db, uid, password, 'res.partner', 'search', [[['is_company', '=', True]]]) ids 
