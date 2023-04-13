@@ -2,6 +2,7 @@ import { Navigate, useRoutes } from 'react-router-dom';
 import UserPage from '../../../pages/UserPage';
 import Page404 from '../../../pages/Page404'; 
 import SvgColor from '../../../components/svg-color'; 
+import FormPage from '../../../pages/FormPage';
 
 //----------------------------------------------------------------------
 
@@ -36,6 +37,36 @@ const navConfig = [
     title={'Projects'}
     model="project.project"
     key={"project.project"}
+    />,
+  },
+  {
+    title: 'NEW Users',
+    path: 'new/users',
+    icon: icon('ic_user'),
+    element: <FormPage
+    title={'Users'}
+    model="res.partner"
+    key={"NEW_res.partner"}
+    />,
+  },
+  {
+    title: 'NEW Products',
+    path: 'new/product',
+    icon: icon('ic_cart'),
+    element: <FormPage
+    title={'Products'}
+    model="product.template"
+    key={"NEW_product.template"}
+    />,
+  },
+    {
+    title: 'NEW Projects',
+    path: 'new/project',
+    icon: icon('ic_cart'),
+    element: <FormPage
+    title={'Projects'}
+    model="project.project"
+    key={"NEW_project.project"}
     />,
   },
   /**
